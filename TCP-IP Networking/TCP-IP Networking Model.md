@@ -27,3 +27,22 @@ Tuttavia si scelse di non ripetere il lavoro che era gia' stato fatto da altri:
 hanno deciso quindi di utilizzare degli standard rilasciati da altre compagnie,
 come per essempio **l'Ethernet LAN** definito **dall'Istitute of Eletrical and
 Electronic Engineers(IEEE)** e quindi non documentato da un RFC.
+
+Il modello **TCP/IP** separa le proprie funzioni in dei blocchi chiamati **layer**(livelli in Italiano), di quale parte viene implementata anche nei sistemi operativi che usiamo tutti i giorni.
+
+```mermaid
+block-beta
+columns 1
+F["Stack TCP/IP CISCO"]
+A["Application Layer"] 
+B["Transport Layer"] 
+C["Network Layer"] 
+D["Data Link"] 
+E["Physical"]
+style F fill:#fff,stroke:#fff
+```
+
+Vediamo qui un esempio di **stack TCP/IP**, ovvero tutti i layer del modello. In realtà per lo scopo del corso, lo stack si compone di 5 layer, che non corrisponde propriamente allo stack TCP/IP reale, che unisce il livello fisico e il data link.
+
+Anche **CISCO Packet Tracer**, il software per simulare le reti che sfrutteremo in futuro, fa uso di questo stack TCP/IP esteso.
+
