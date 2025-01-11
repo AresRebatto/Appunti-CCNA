@@ -46,3 +46,20 @@ Vediamo qui un esempio di **stack TCP/IP**, ovvero tutti i layer del modello. In
 
 Anche **CISCO Packet Tracer**, il software per simulare le reti che sfrutteremo in futuro, fa uso di questo stack TCP/IP esteso.
 
+### Application Layer
+
+E' il layer più in alto dello stack e i suoi protocolli sono moltissimi e, quindi, il suo funzionamento dipende moltissimo da quello che se ne vuole fare.
+
+Esempi di protocolli dell'Application Layer sono **POP3**, **SMTP** e **HTTP**. Quest'ultimo è quello che viene usato, ad esempio, per la visualizzazione delle pagine web e il funzionamento, a grandi linee, è quello che segue:
+
+```mermaid
+sequenceDiagram;
+Client ->> Server: Header: GET home.html
+Server ->> Client: Header: OK, Body: home.html[Piece 1]
+Server ->> Client: Body: home.html[Piece 2]
+```
+
+
+
+
+
