@@ -59,6 +59,28 @@ Server ->> Client: Header: OK, Body: home.html[Piece 1]
 Server ->> Client: Body: home.html[Piece 2]
 ```
 
+Il funzionamento è abbastanza intuitivo: un client, come potrebbe essere il web browser, manda un messaggio(**request**) al server chiedendo di mandargli la pagina home.html. Il server risponde con una **respond** in cui è contenuto nell'header lo **status code**, ovvero un codice che definisce se è andato tutto correttamente.
+
+Lo status code associato all'OK, quindi tutto riuscito bene, è il 200, mentre, ad esempio, c'è anche il **Not Found** con lo status code **404** che indica che una specifica risorsa richiesta, come può essere una pagina web, non è stata trovata.
+
+La pagina viene inoltre divisa in più segmenti e viene inviata in più messaggi, ma dal secondo messaggio in poi, lo status code viene omesso per alleggerire quanto più possibile il pacchetto.
+
+### Transport Layer
+
+Al di sotto dell'application layer troviamo il **transport layer**, che ha un numero molto limitato di protocolli e i più usati sono solamente due: **TCP(Trasmission Control Protocol)** e **UDP(User Datagram Protocol)**.
+
+Ogni protocollo offre un servizio al protocollo soprastante e uno di quelli offerti dal transport layer è quello di **error-recovery**: permette quindi di riconoscere se è avvenuto qualche errore nella comunicazione tra due host mediante il concetto di **acknowledgments**.
+
+```mermaid
+sequenceDiagram;
+Server ->> Client: [TCP] SEQ= 1 | Header: OK, Body: home.html[Piece 1]
+Server -x Client: [TCP] SEQ= 2 | Body: home.html[Piece 2]
+Server ->> Client: [TCP] SEQ= 3 | Body: home.html[Piece 3]
+Client ->> Server: [TCP] "Reinvia il 2"
+```
+
+Per fornire questo servizio, TCP usa un **numero di sequenza(SEQ)** che indica l'ordine con cui devono essere inviati i pacchetti e se ci si accorge che manca un pacchetto, come in questo caso in cui il pacchetto con sequenza pari a 2, viene perso, allora chi riceve i pacchetti può rendersene conto e richiedere nuovamente il pacchetto che è andato perso per qualsiasi ragione.
+
 
 
 
