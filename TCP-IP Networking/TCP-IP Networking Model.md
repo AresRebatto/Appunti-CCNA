@@ -38,7 +38,7 @@ A["Application Layer"]
 B["Transport Layer"] 
 C["Network Layer"] 
 D["Data Link"] 
-E["Physical"]
+E["Physical Layer"]
 style F fill:#fff,stroke:#fff
 ```
 
@@ -80,6 +80,36 @@ Client ->> Server: [TCP] "Reinvia il 2"
 ```
 
 Per fornire questo servizio, TCP usa un **numero di sequenza(SEQ)** che indica l'ordine con cui devono essere inviati i pacchetti e se ci si accorge che manca un pacchetto, come in questo caso in cui il pacchetto con sequenza pari a 2, viene perso, allora chi riceve i pacchetti può rendersene conto e richiedere nuovamente il pacchetto che è andato perso per qualsiasi ragione.
+
+### Network Layer
+
+Anche il network layer ha un numero molto limitato di protocolli e il più usato è **l'Internet Protocol(IP)**, definito **nell'RFC 791**. Di fatto il modello TCP/IP prende il nome dai sue due protocolli più usati.
+
+L'Internet Protocol implementa due importantissime features che sono **l'indirizzamento**, necessario a identificare univocamente un host all'interno di una rete, e il **routing**, necessario per definire il percorso che devono seguire i pacchetti per raggiungere una specifica destinazione.
+
+**L'indirizzo IP** segue una nomenclatura chiamata **dotted-decimal notation(DDN)** che consiste in 4 numeri separati da dei punti. Ogni numero viene rappresentato da 8 bit e, in quanto tale, in decimale vanno da 0 a 255. Per esempio 192.168.3.2
+
+Gli indirizzi IP possono anche identificare un **gruppo d'indirizzi IP**, vedremo in seguito in che modo.
+
+### Data-Link e Physical Layer
+
+Questi due layer lavorano a stretto contatto tra loro, tanto che alcuni standard definiscono le funzionalità sia del Data-Link che del Physical Layer.
+
+Quando si parla di IP Address a cui mandare un pacchetto, indica il destinatario finale che deve essere raggiunto, ma quando si parla del prossimo host da raggiungere, il **next hop**, questo viene identificato da un codice chiamato **MAC Address**, che identifica nello specifico una scheda di rete, che viene definito dall'IEEE **802.3** e **802.11** per le reti wireless.
+
+```mermaid
+block-beta
+    columns 4
+    A["Eth Header"] B["IP Packet"]:2 C["Eth Trailer"]
+```
+
+Questo è la struttura di un pacchetto al Layer 2. Ottiene il pacchetto dal network layer e gli aggiunge un **header** all'inizio e un **trailer** alla fine: questo è l'unico layer in cui viene aggiunto anche il trailer. Per tutti gli altri layer, ognuno aggiunge il proprio header a quello che gli viene passato dal layer immediatamente sopra e il processo di aggiungere questi header è detto **encapsulation**.
+
+Per ogni layer, i dati che vengono inseriti come header(e trailer per il DataLink) sono detti **Protocol Data Unit(PDU)** in modo generico e si chiamano **data** per l'application layer, **segment** per il transport layer, **packet** per il network layer e **frame** per il data link.
+
+
+
+
 
 
 
