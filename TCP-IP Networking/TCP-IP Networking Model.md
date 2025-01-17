@@ -107,6 +107,27 @@ Questo è la struttura di un pacchetto al Layer 2. Ottiene il pacchetto dal netw
 
 Per ogni layer, i dati che vengono inseriti come header(e trailer per il DataLink) sono detti **Protocol Data Unit(PDU)** in modo generico e si chiamano **data** per l'application layer, **segment** per il transport layer, **packet** per il network layer e **frame** per il data link.
 
+```mermaid
+block-beta
+	columns 5
+	A["‎"] B["‎"] C["‎"] D["Data"] E["‎"]
+	F["‎"] G["‎"] H["Segment"] I["Application PDU"] L["‎"]
+	M["‎"] N["Packet"] O["Transport PDU"]:2 P["‎"]
+	R["Frame header"] S["Network PDU"]:3  V["frame trailer"]
+	
+style A fill:#fff,stroke:#fff
+style B fill:#fff,stroke:#fff
+style C fill:#fff,stroke:#fff
+style E fill:#fff,stroke:#fff
+
+style F fill:#fff,stroke:#fff
+style G fill:#fff,stroke:#fff
+style L fill:#fff,stroke:#fff
+
+style P fill:#fff,stroke:#fff
+style M fill:#fff,stroke:#fff
+```
+
 
 
 
