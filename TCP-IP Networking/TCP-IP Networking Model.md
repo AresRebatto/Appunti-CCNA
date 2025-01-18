@@ -42,7 +42,7 @@ E["Physical Layer"]
 style F fill:#fff,stroke:#fff
 ```
 
-Vediamo qui un esempio di **stack TCP/IP**, ovvero tutti i layer del modello. In realtà per lo scopo del corso, lo stack si compone di 5 layer, che non corrisponde propriamente allo stack TCP/IP reale, che unisce il livello fisico e il data link.
+Vediamo qui un esempio di **stack TCP/IP**, ovvero tutti i layer del modello. In realtà per lo scopo del corso, lo stack si compone di 5 layer, che non corrisponde propriamente allo stack TCP/IP reale, che unisce il livello fisico e il data link in quello che si definisce **Network Access Layer**.
 
 Anche **CISCO Packet Tracer**, il software per simulare le reti che sfrutteremo in futuro, fa uso di questo stack TCP/IP esteso.
 
@@ -128,11 +128,23 @@ style P fill:#fff,stroke:#fff
 style M fill:#fff,stroke:#fff
 ```
 
+### OSI vs TCP/IP
 
+A questo punto potrebbe sorgere una domanda spontanea: se ad essere usato è il TCP/IP, per quale motivo si parla comunque dell'OSI? Banalmente, per la terminologia.
 
+Di seguito si ripota le differenze tra il modello OSI e il TCP/IP
 
+```mermaid
+block-beta
+columns 8
+A["OSI"] B["Application"] C["Presentation"] D["Session"] E["Transport"] F["Network"] G["Data Link"] H["Phisical"]
+I["TCP/IP"] L["Application"]:3 M["Transport"] N["Network"] O["Network Access"]:2
 
+style A fill: #FFFF, stroke: #FFFF
+style I fill: #FFFF, stroke: #FFFF
+```
 
+L'OSI divide l'Application layer in **Application**, **Presentation** e **Session** layer che si occupano rispettivamente di fornire un'interfaccia all'utente, di gestire il formato dei dati e la crittografia e di gestire le connessioni logiche con altri host.
 
 
 
